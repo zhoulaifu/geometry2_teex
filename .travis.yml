@@ -2,7 +2,7 @@ language: C
 services:
 - docker
 before_install:
-- TOKEN=$TOKEN make build_docker
+- TOKEN=$GITHUB_TOKEN make build_docker
 script:
 - echo "Triggered 16h15"
 - gcc hello.c
