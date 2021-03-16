@@ -7,3 +7,4 @@ before_install:
 script:
 - echo "Triggered 16h15"
 - gcc hello.c
+- make buffer_core_test.shaping
