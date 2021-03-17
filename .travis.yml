@@ -1,12 +1,16 @@
 language: C
-services:
-- docker
-before_install:
+#services:
+#- docker
+#before_install:
 - TOKEN=$GITHUB_TOKEN make build_docker
 script:
-- echo "Triggered 16h15"
+- echo "Triggered 10h25"
 - gcc hello.c
-- make buffer_core_test.shaping
+#- make buffer_core_test.shaping
+- pwd
+- ls -l 
+- echo $HOME
+
 env:
   global:
   - IMAGE=test01
