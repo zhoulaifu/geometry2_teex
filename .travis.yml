@@ -2,7 +2,7 @@ language: C
 services:
 - docker
 before_install:
-- TOKEN=$GITHUB_TOKEN ./geometry2_teex build_docker
+- TOKEN=$GITHUB_TOKEN ./geometry2_teex.sh build_docker
 script:
 - echo "Triggered 15h28"
 - gcc hello.c
