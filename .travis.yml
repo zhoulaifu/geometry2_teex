@@ -1,9 +1,9 @@
 language: C
 services:
 - docker
-# cache:
-#   directories:
-#   - docker_cache
+cache:
+  directories:
+    - docker_cache
 
 before_script:
 #- docker load -i docker_images/images.tar || true
