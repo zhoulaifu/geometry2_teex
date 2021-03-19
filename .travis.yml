@@ -31,7 +31,7 @@ script:
 - gcc hello.c
 #- make buffer_core_test.shaping
 - docker run -it test04 /bin/bash -c "pwd"
-
+- docker run -it test04 /bin/bash -c "ls -l /opt"
 #cache:
 #  directories:
 #  - docker_images
