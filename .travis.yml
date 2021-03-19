@@ -15,7 +15,8 @@ before_script:
   else  echo "from scratach"; docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
   fi
   echo Now saving...
-  docker save -o docker_images/images.tar $(docker images -a -q)
+  docker save -o "$filename" $IMAGE
+
 
 
 before_cache:
