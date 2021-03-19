@@ -21,9 +21,6 @@ before_script:
   fi
 
 
-
-before_cache:
-  - echo before cache
   
 
 
