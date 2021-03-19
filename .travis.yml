@@ -6,13 +6,15 @@ cache:
   - docker_images
 
 before_install:
-- docker load -i docker_images/images.tar || true
-
+#- docker load -i docker_images/images.tar || true
+#-  TOKEN=$GITHUB_TOKEN ./geometry2_teex.sh build_docker
+- docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
 before_cache:
-- docker save -o docker_images/images.tar $(docker images -a -q)
+  - echo before cache
+#- docker save -o docker_images/images.tar $(docker images -a -q)
 
 
-#  TOKEN=$GITHUB_TOKEN ./geometry2_teex.sh build_docker
+
 
 script:
 - echo "Triggered 10h34"
