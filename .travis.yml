@@ -3,15 +3,24 @@ services:
 - docker
 cache:
   directories:
-  - docker_images
+  - docker_cache
 
-before_install:
+before_script:
 #- docker load -i docker_images/images.tar || true
 #-  TOKEN=$GITHUB_TOKEN ./geometry2_teex.sh build_docker
-- docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
+- |
+  echo Now loading...
+  filename=docker-cache/saved_images.tar
+  if [[ -f "$filename" ]]; then docker load < "$filename"; echo "got one from cache.";
+  else  echo "from scratach"; docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
+  fi
+  echo Now saving...
+  docker save -o docker_images/images.tar $(docker images -a -q)
+
+
 before_cache:
   - echo before cache
-#- docker save -o docker_images/images.tar $(docker images -a -q)
+  
 
 
 
