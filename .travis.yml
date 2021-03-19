@@ -18,9 +18,7 @@ script:
 - echo "Triggered 10h34"
 - gcc hello.c
 #- make buffer_core_test.shaping
-- pwd
-- ls -l 
-- echo $HOME
+- docker run -it test04 /bin/bash -c "pwd"
 
 #cache:
 #  directories:
