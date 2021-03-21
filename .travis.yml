@@ -1,9 +1,3 @@
-arch: arm64-graviton2 # in AWS over Graviton2 CPU
-virt: vm              # required, routes to a 'full VM' instance 
-os: linux             # required for arch different than amd64
-dist: focal
-group: edge
-
 language: C
 services:
 - docker
