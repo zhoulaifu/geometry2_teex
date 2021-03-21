@@ -38,7 +38,7 @@ script:
 - echo "Triggered 10h34"
 - gcc hello.c
 #- make buffer_core_test.shaping
-- docker run -t test04 /bin/bash -c "pwd"
+- docker run -it test04 /bin/bash -c "pwd"
 #- docker run -it test04 /bin/bash -c "ls -l /opt"
 #cache:
 #  directories:
