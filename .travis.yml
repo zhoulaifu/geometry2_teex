@@ -38,7 +38,7 @@ script:
 - echo "Triggered 10h34"
 - gcc hello.c
 #- make buffer_core_test.shaping
-- docker run -it test04 /bin/bash -c "pwd"
+- docker run  test04 /bin/bash -c "pwd"
 #- docker run -it test04 /bin/bash -c "ls -l /opt"
 #cache:
 #  directories:
@@ -52,6 +52,6 @@ script:
 env:
   global:
   - IMAGE=test04
-  - USE_CACHE=false
+  - USE_CACHE=true
   - MOUNT=/mnt/local
   - secure: 0c1qA4Lz5tg3bKVxsDMp3eugv1TQXhBb25X8ObwMnqTxK//u7pu9QkH0wEf5vN/B0u4uYAai/08j281Ym1VANtfg+Iw+TDIuLK7WiZtN19Rp98zkmo/n71trrl8eWHydFCWAtpOzgAgPIvs8sdR0tsUemnANjUfc/TRJHMp7ARTAvUez80CuhHdkyZXLWgY5CrLYUIuZQPoziQDkmxawLs5GRkQlAdVfbMXkzyRtpxwBcjLjlIbZRvV4rcyLntiBVNVTUXV9mO3UtnJwpxsXtKDELyPNSLfLPldk9i6GkhqXsUJzFiKjGeSGOtKvWZaz0oagOzP/f+jWOvAVrXQm9p7crR4raui9OoXWFkr+EKwG3gfaVVf07DzAoYQgjt7EnOWrAMfWIqmDCc7AGwPeykdjJiPU7hJjAsny5ELNWEUpDRR+18946Vgq/NLmnTOr5bCuZtQWR5+f4twB3ncyrkL5+i0pPwNUso+vNHHoxv+k0aLQPj65JWmkBM9PRpIjbyz5Aalfvumb69sV2rIoiDqrVu0lCgByrv69iOHo8IE4eNb2bqwh377Q62iW0cPmeS52MNVFblZQXICpoSjPy0QhZnnU8PlfOtuIUhl/97RqkXIzl1qcP+Uvajo3ZTQ/dC8yt4412BiE9PxXSib65QLRra3emdADzGrgfPYJo54=
