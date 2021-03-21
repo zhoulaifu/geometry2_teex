@@ -1,28 +1,28 @@
 language: C
 services:
 - docker
-# cache:
-#   directories:
-#     - docker_cache
-
-# before_script:
-# #- docker load -i docker_images/images.tar || true
-# #-  TOKEN=$GITHUB_TOKEN ./geometry2_teex.sh build_docker
-# - |
-#   echo Now loading...
-#   filename=docker_cache/saved_images.tar
-#   mkdir -p docker_cache
-#   if [[ -f "$filename" ]]; then
-#     echo "got one from cache."
-#     docker load < "$filename"
-#   else
-#     echo "from scratach";
-#     docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
-#     docker save -o "$filename" $IMAGE 
-#   fi
+cache:
+  directories:
+    - docker_cache
 
 before_script:
--    docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
+#- docker load -i docker_images/images.tar || true
+#-  TOKEN=$GITHUB_TOKEN ./geometry2_teex.sh build_docker
+- |
+  echo Now loading...
+  filename=docker_cache/saved_images.tar
+  mkdir -p docker_cache
+  if [[ -f "$filename" ]] && ["./Dockerfile" -ot $filename]; then
+    echo "got one from cache."
+    docker load < "$filename"
+  else
+    echo "from scratach";
+    docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
+    docker save -o "$filename" $IMAGE 
+  fi
+
+#before_script:
+#-    docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
   
 
 
