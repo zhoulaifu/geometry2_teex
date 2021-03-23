@@ -60,7 +60,7 @@ _shape(){
 
 shape(){
 
-    docker run --mount type=bind,source=$PWD,target=$MOUNT -it "$IMAGE" $0  _shape
+    docker run --mount type=bind,source=$PWD,target=$MOUNT  "$IMAGE" $0  _shape
 
 }
 
@@ -72,7 +72,7 @@ _fuzz(){
 
     source /opt/ros/foxy/setup.bash
 
-    cd /opt/ros_ws && CXX="afl-g++" eval $BUILD_INSTRUCTION && cd -
+    cd /opt/ros_ws && CXX="afl-clang-fast++" CXXFLAGS="--coverage -g -fsanitize=address,undefined -fsanitize-undefined-trap-on-error" eval $BUILD_INSTRUCTION && cd -
 
     cd $MOUNT/$SOURCE && rm -rf out/* \
                 && timeout ${TIMEOUT} bash -c "afl-fuzz -m none -t ${TIMEOUT2} -i in/ -o out/ -- $BINARY "|| true
