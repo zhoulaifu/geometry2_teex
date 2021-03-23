@@ -40,9 +40,8 @@ script:
 
 - echo "try01"
 - docker run  --privileged  "${IMAGE}" /bin/bash -c "ls -l /proc/sys/kernel/core_pattern && whoami"
-
- - echo "try02"
- - docker run --privileged "${IMAGE}" whoami && sudo /bin/bash -c  "whoami && echo core > /proc/sys/kernel/core_pattern"
+- echo "try02"
+- docker run --privileged "${IMAGE}" whoami && sudo /bin/bash -c  "whoami && echo core > /proc/sys/kernel/core_pattern"
 
 # - echo "try03"
 # - docker run --privileged "${IMAGE}" sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
