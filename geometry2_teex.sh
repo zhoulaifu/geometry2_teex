@@ -37,17 +37,6 @@ hello(){
     echo "run $0 fuzzing and $0 _fuzzing outside and inside the docker respectively"
 }
 
-build_docker(){
-    if [ -z "$TOKEN" ]; then echo "ERROR: TOKEN is set to '$TOKEN'"; exit 1; fi
-
-    docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
-
-}
-
-run_docker(){
-
-    docker run --mount type=bind,source=$PWD,target=$MOUNT -it "$IMAGE" /bin/bash
-}
 
 
 _exit_if_not_in_docker(){

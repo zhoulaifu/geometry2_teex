@@ -37,16 +37,8 @@ before_script:
 script:
 - echo "Triggered 10h34"
 - gcc hello.c
-#- make buffer_core_test.shaping
-- docker run  test04 /bin/bash -c "pwd"
-#- docker run -it test04 /bin/bash -c "ls -l /opt"
-#cache:
-#  directories:
-#  - docker_images
+- ./geometry2_teex.sh shape
 
-
-#before_cache:
-#- docker save -o docker_images/images.tar $(docker images -a -q)
 
 
 env:
