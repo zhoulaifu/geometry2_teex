@@ -24,7 +24,7 @@ before_script:
   else
     echo "from scratch";
     docker build --build-arg GIT_ACCESS_TOKEN=$GITHUB_TOKEN -t $IMAGE .
-    docker save -o "$filename" $IMAGE 
+    if $USE_CACHE; then docker save -o "$filename" $IMAGE; fi 
   fi
 
 #before_script:
