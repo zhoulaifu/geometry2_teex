@@ -79,7 +79,7 @@ _fuzz(){
 }
 
 fuzz(){
-    docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "$IMAGE" $0  _fuzz
+    docker run --mount type=bind,source=${PWD},target=${MOUNT}  "$IMAGE" $0  _fuzz
 
 }
 $1
