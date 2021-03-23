@@ -35,7 +35,8 @@ before_script:
 
 
 script:
--     docker run --privileged "${IMAGE}" /bin/bash -c "echo core > /proc/sys/kernel/core_pattern"
+-     docker run --privileged "${IMAGE}" /bin/bash -c "sudo echo core > /proc/sys/kernel/core_pattern"  
+#-     docker run --privileged "${IMAGE}" /bin/bash -c "echo core > /proc/sys/kernel/core_pattern"
 
 
 # - echo "Triggered 10h34"
