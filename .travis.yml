@@ -37,12 +37,13 @@ before_script:
 script:
 - echo "Triggered 10h34"
 - gcc hello.c
- echo "BEFORE"
+- echo "BEFORE"
 - ls -l
 - ./geometry2_teex.sh shape
 - echo "AFTER"
 - ls -l
-
+- - ./geometry2_teex.sh fuzz
+- ls opt/ros_ws/src/geometry2/test_tf2/test/buffer_core_test.cpp/out/queue/
 
 env:
   global:
