@@ -35,8 +35,8 @@ before_script:
 
 
 script:
--     docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT}  "${IMAGE}" \
-           bash -c "echo core > /proc/sys/kernel/core_pattern && $0 _fuzz"
+-     docker run --privileged "${IMAGE}" \
+           bash -c "echo core > /proc/sys/kernel/core_pattern"
 
 
 # - echo "Triggered 10h34"
