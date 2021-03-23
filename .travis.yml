@@ -35,15 +35,19 @@ before_script:
 
 
 script:
-- echo "Triggered 10h34"
-- gcc hello.c
-- echo "BEFORE"
-- ls -l
-- ./geometry2_teex.sh shape
-- echo "AFTER"
-- ls -l
-- - ./geometry2_teex.sh fuzz
-- ls opt/ros_ws/src/geometry2/test_tf2/test/buffer_core_test.cpp/out/queue/
+-     docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT}  "${IMAGE}" \
+           bash -c "echo core > /proc/sys/kernel/core_pattern && $0 _fuzz"
+
+
+# - echo "Triggered 10h34"
+# - gcc hello.c
+# - echo "BEFORE"
+# - ls -l
+# - ./geometry2_teex.sh shape
+# - echo "AFTER"
+# - ls -l
+# - - ./geometry2_teex.sh fuzz
+# - ls opt/ros_ws/src/geometry2/test_tf2/test/buffer_core_test.cpp/out/queue/
 
 env:
   global:
