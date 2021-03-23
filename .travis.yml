@@ -39,19 +39,19 @@ script:
 - whoami
 
 - echo "try01"
-- docker run  "--privileged  ${IMAGE}" /bin/bash -c "ls -l /proc/sys/kernel/core_pattern && whoami"
+- docker run  --privileged  "${IMAGE}" /bin/bash -c "ls -l /proc/sys/kernel/core_pattern && whoami"
 
-- echo "try02"
-- docker run "${IMAGE}" sudo /bin/bash -c  "sudo echo core > /proc/sys/kernel/core_pattern"
+# - echo "try02"
+# - docker run "${IMAGE}" sudo /bin/bash -c  "sudo echo core > /proc/sys/kernel/core_pattern"
 
-- echo "try03"
-- docker run --privileged "${IMAGE}" sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
+# - echo "try03"
+# - docker run --privileged "${IMAGE}" sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
 
-- echo "try04"
-- sudo docker run --privileged  "${IMAGE}"  sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
+# - echo "try04"
+# - sudo docker run --privileged  "${IMAGE}"  sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
 
-- echo "try05"
-- sudo docker run --privileged  "${IMAGE}"  sudo /bin/bash -c  "sudo echo core > /proc/sys/kernel/core_pattern"
+# - echo "try05"
+# - sudo docker run --privileged  "${IMAGE}"  sudo /bin/bash -c  "sudo echo core > /proc/sys/kernel/core_pattern"
 
 #-     docker run --privileged "${IMAGE}" /bin/bash -c "echo core > /proc/sys/kernel/core_pattern"
 
