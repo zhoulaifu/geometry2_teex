@@ -51,7 +51,7 @@ script:
 - sudo docker run "${IMAGE}" --privileged sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
 
 - echo "try05"
--     sudo docker run "${IMAGE}" --privileged sudo /bin/bash -c  "sudo echo core > /proc/sys/kernel/core_pattern"
+- sudo docker run "${IMAGE}" --privileged sudo /bin/bash -c  "sudo echo core > /proc/sys/kernel/core_pattern"
 
 #-     docker run --privileged "${IMAGE}" /bin/bash -c "echo core > /proc/sys/kernel/core_pattern"
 
