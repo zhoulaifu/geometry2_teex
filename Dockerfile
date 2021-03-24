@@ -25,5 +25,5 @@ RUN cd $ROS_WS \
          &&  VERBOSE=1 CXX="afl-clang-fast++" CXXFLAGS="--coverage -g -fsanitize=address,undefined -fsanitize-undefined-trap-on-error" colcon build --event-handlers console_direct+
 
 
-CMD echo "change core_pattern"
-CMD sysctl -w kernel.core_pattern="core7"
+#CMD echo "change core_pattern"
+#CMD sysctl -w kernel.core_pattern="core7"
