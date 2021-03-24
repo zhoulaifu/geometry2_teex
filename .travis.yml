@@ -46,7 +46,7 @@ script:
 - docker run --privileged "${IMAGE}" sudo bash -c  "echo core > /proc/sys/kernel/core_pattern"
 
 - echo "try03"
-- docker run --privileged "${IMAGE}" sudo bash -c  "touch empty; cp empty /proc/sys/kernel/core_pattern"
+- docker run --privileged "${IMAGE}" bash -c  "whoami; touch empty; cp empty /proc/sys/kernel/core_pattern; ls -l /proc/sys/kernel/core_pattern; cat /proc/sys/kernel/core_pattern "
 
 
 # - echo "try03"
