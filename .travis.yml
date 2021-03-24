@@ -41,12 +41,10 @@ script:
 - echo "try01"
 - docker run  --privileged  "${IMAGE}" /bin/bash -c "ls -l /proc/sys/kernel/core_pattern && whoami && pwd && ls -l"
 - echo "try02"
-- docker run --privileged "${IMAGE}" sudo bash -c  "whoami"
-- docker run --privileged "${IMAGE}"  bash -c  "whoami"
 - docker run --privileged "${IMAGE}" sudo bash -c  "echo core > /proc/sys/kernel/core_pattern"
-
 - echo "try03"
-- docker run --privileged "${IMAGE}" bash -c  "whoami; touch empty; cp empty /proc/sys/kernel/core_pattern; ls -l /proc/sys/kernel/core_pattern; cat /proc/sys/kernel/core_pattern "
+- docker run --privileged "${IMAGE}"  bash -c 'sysctl -w kernel.core_pattern="core7"'
+- docker run --privileged "${IMAGE}" bash -c  "ls -l /proc/sys/kernel/core_pattern; cat /proc/sys/kernel/core_pattern"
 
 
 # - echo "try03"
