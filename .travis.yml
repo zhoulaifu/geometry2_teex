@@ -43,7 +43,7 @@ script:
 - echo "try02"
 - docker run --privileged "${IMAGE}" sudo bash -c  "echo core > /proc/sys/kernel/core_pattern"
 - echo "try03"
-- docker run --privileged "${IMAGE}"  bash -c 'sysctl -w kernel.core_pattern="core7"'
+- docker run --privileged "${IMAGE}"  bash -c 'sudo sysctl -w kernel.core_pattern="core7"'
 - docker run --privileged "${IMAGE}" bash -c  "ls -l /proc/sys/kernel/core_pattern; cat /proc/sys/kernel/core_pattern"
 
 
