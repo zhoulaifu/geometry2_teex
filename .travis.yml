@@ -39,9 +39,13 @@ script:
 - whoami
 
 - echo "try01"
-- docker run  --privileged  "${IMAGE}" /bin/bash -c "ls -l /proc/sys/kernel/core_pattern && whoami && ls -l"
+- docker run  --privileged  "${IMAGE}" /bin/bash -c "ls -l /proc/sys/kernel/core_pattern && whoami && pwd && ls -l"
 - echo "try02"
-- docker run --privileged "${IMAGE}" sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
+- docker run --privileged "${IMAGE}" whoami && sudo bash -c  "echo core > /proc/sys/kernel/core_pattern"
+
+- echo "try03"
+- docker run --privileged "${IMAGE}" whoami && touch empty && sudo bash -c  "cp empty > /proc/sys/kernel/core_pattern"
+
 
 # - echo "try03"
 # - docker run --privileged "${IMAGE}" sudo /bin/bash -c  "echo core > /proc/sys/kernel/core_pattern"
