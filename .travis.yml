@@ -36,7 +36,7 @@ before_script:
 
 script:
 
-- whoami
+- echo "19h04 29 mar"
 
 - echo "try01"
 - docker run  --privileged  "${IMAGE}" /bin/bash -c "ls -l /proc/sys/kernel/core_pattern && whoami && pwd && ls -l"
